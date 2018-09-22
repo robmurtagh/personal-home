@@ -1,40 +1,46 @@
-import * as THREE from 'three';
-import Typed from 'typed.js';
+import { PerspectiveCamera, Scene, Color, SphereGeometry, MeshBasicMaterial, Mesh, WebGLRenderer } from "three";
+import Typed from "typed.js";
 
 var options = {
-    strings: ["<i>First</i> sentence.", "&amp; a second sentence."],
-    typeSpeed: 40
-}
+    stringsElement: "#typed-strings",
+    typeSpeed: 40,
+    showCursor: false,
+};
 
-var typed = new Typed(".element", options);
+new Typed("#terminal", options);
 
 function init() {
-
     var camera, scene, renderer;
     var geometry, material, mesh;
+    var frameWidth = document.getElementById("graphic").clientWidth;
+    var frameHeight = document.getElementById("graphic").clientHeight;
 
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10);
-    camera.position.z = 3;
+    console.log("document.getElementById(\"graphic\").style.width)");
+    console.log(document.getElementById("graphic").style.width);
 
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff);
+    camera = new PerspectiveCamera(75, frameWidth / frameHeight, 0.1, 10);
+    camera.position.z = 2.5;
 
-    geometry = new THREE.SphereGeometry(1, 18, 18);
-    material = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true, wireframeLinewidth: 1 });
+    scene = new Scene();
+    scene.background = new Color(0xffffff);
 
-    mesh = new THREE.Mesh(geometry, material);
+    geometry = new SphereGeometry(1, 18, 18);
+    material = new MeshBasicMaterial({ color: 0x000000, wireframe: true, wireframeLinewidth: 1 });
+
+    mesh = new Mesh(geometry, material);
     scene.add(mesh);
 
-    renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer = new WebGLRenderer({ antialias: true });
+    renderer.setSize(frameWidth, frameHeight);
 
-    document.body.appendChild(renderer.domElement);
+    document.getElementById("graphic").appendChild(renderer.domElement);
 
-    document.body.addEventListener('mousemove', function (e) {
-        mesh.rotation.x = ((5 * e.y / window.innerHeight) - 0.5);
-        mesh.rotation.y = ((5 * e.x / window.innerWidth) - 0.5);
+    document.body.addEventListener("mousemove", function (e) {
+        mesh.rotation.x = (5 * e.y) / frameHeight - 0.5;
+        mesh.rotation.y = (5 * e.x) / frameWidth - 0.5;
         renderer.render(scene, camera);
-    })
+    });
+    renderer.render(scene, camera);
 }
 
 init();
