@@ -8,8 +8,11 @@ canvas {
 
 .mw-80vw { max-width: 80vw }
 .mh-80vw { max-height: 80vw }
+
 .w6 { width: 32rem }
 .h6 { height: 32rem }
+
+.vh-100-hack { min-height: calc(100% - 0) }; /* fixes iOS Safari scroll issue */
 
 @media screen and (min-width: 30em) {
     .w34rem-ns { width: 34rem }

@@ -15,11 +15,8 @@ function init() {
     var frameWidth = document.getElementById("graphic").clientWidth;
     var frameHeight = document.getElementById("graphic").clientHeight;
 
-    console.log("document.getElementById(\"graphic\").style.width)");
-    console.log(document.getElementById("graphic").style.width);
-
     camera = new PerspectiveCamera(75, frameWidth / frameHeight, 0.1, 10);
-    camera.position.z = 2.5;
+    camera.position.z = 2;
 
     scene = new Scene();
     scene.background = new Color(0xffffff);
@@ -40,6 +37,17 @@ function init() {
         mesh.rotation.y = (5 * e.x) / frameWidth - 0.5;
         renderer.render(scene, camera);
     });
+
+    var rotationX = 0;
+    var rotationY = 0;
+    document.body.addEventListener("touchmove", function (e) {
+        rotationX = rotationX + e.touches[0].clientX;
+        rotationY = rotationY + e.touches[0].clientY;
+        mesh.rotation.x = rotationX / 10000;
+        mesh.rotation.y = rotationY / 10000;
+        renderer.render(scene, camera);
+    });
+
     renderer.render(scene, camera);
 }
 

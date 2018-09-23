@@ -1,14 +1,16 @@
 {
-    "name": "robmurtagh-home",
+    "name": "personal-site",
     "version": "1.0.0",
-    "description": "Code for robmurtagh.com",
+    "description": "Code for www.robmurtagh.com",
     "main": "index.js",
     "sideEffects": false,
     "scripts": {
         "start": "node_modules/.bin/webpack-dev-server",
         "build": "node_modules/.bin/webpack",
         "clean": "rm -rf dist",
-        "deploy": "npm run build"
+        "deploy": "npm run clean && npm run build && npm run deploy-s3 && npm run deploy-cdn",
+        "deploy-s3": "aws --profile personal --region 'eu-west-1' s3 sync ./dist s3://www.robmurtagh.com --exclude '*/.DS_Store' --delete",
+        "deploy-cdn": "aws --profile personal cloudfront create-invalidation --distribution-id E374FE0IUUBHAM --paths '/*'"
     },
     "author": "Robert Murtagh",
     "license": "ISC",
