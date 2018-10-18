@@ -30,7 +30,7 @@ npm run deploy
 
 ## Developer details
 
-* The [javascript](src/index.js) for this site depends on [three.js](https://github.com/mrdoob/three.js) and [typed.js](https://github.com/mattboldt/typed.js) - thanks!
-* CSS is mainly via the great [Tachyons Functional CSS framework](https://github.com/tachyons-css/tachyons) framework, with extra classes added in [style.css](src/css/style.css). All CSS is then [purified](https://github.com/purifycss/purifycss) to remove unneeded classes
+* The [Javascript](src/index.js) for this site depends on [three.js](https://github.com/mrdoob/three.js) and [typed.js](https://github.com/mattboldt/typed.js) - thanks to those projects!
+* CSS is mainly via the great [Tachyons Functional CSS framework](https://github.com/tachyons-css/tachyons) framework, with extra classes added in [style.css](src/css/style.css). All CSS is then [Purified](https://github.com/purifycss/purifycss) to remove unneeded classes
 * Build is done using [Webpack](webpack.config.js), this includes injecting purified CSS into a [Handlebars template](index.hbs)
 * Site is deployed to AWS S3 static website hosting with a Cloudfront CDN and SSL certification

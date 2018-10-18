@@ -6,7 +6,7 @@ const Handlebars = require("handlebars");
 
 const rawCss = ["src/css/style.css", "node_modules/tachyons/css/tachyons.min.css"].reduce((css, filePath) => css.concat(fs.readFileSync(filePath, "utf-8")), ""); // prettier-ignore
 const rawHtml = fs.readFileSync("src/index.hbs", "utf-8");
-const purifiedCss = rawCss; //purify(rawHtml, rawCss, { whitelist: ["canvas"], minify: true, info: true });
+const purifiedCss = purify(rawHtml, rawCss, { whitelist: ["canvas"], minify: true, info: true });
 
 module.exports = {
     entry: "./src/index.js",

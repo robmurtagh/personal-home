@@ -1,6 +1,6 @@
 {
     "editor.formatOnSave": true,
-    "prettier.disableLanguages": [
-        "vue"
-    ]
+    "[handlebars]": { "editor.formatOnSave": false },
+    "[markdown]": { "editor.formatOnSave": false },
+    "[css]": { "editor.formatOnSave": false }
 }
