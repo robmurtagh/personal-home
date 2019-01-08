@@ -15,18 +15,18 @@
     "author": "Robert Murtagh",
     "license": "ISC",
     "devDependencies": {
-        "copy-webpack-plugin": "^4.5.2",
-        "css-loader": "^1.0.0",
+        "copy-webpack-plugin": "^4.6.0",
+        "css-loader": "^1.0.1",
         "handlebars": "^4.0.12",
-        "handlebars-loader": "^1.7.0",
+        "handlebars-loader": "^1.7.1",
         "html-webpack-plugin": "^3.2.0",
         "purify-css": "^1.2.5",
-        "webpack": "^4.17.1",
-        "webpack-cli": "^3.1.0",
-        "webpack-dev-server": "^3.1.7"
+        "webpack": "^4.28.1",
+        "webpack-cli": "^3.2.1",
+        "webpack-dev-server": ">=3.1.11"
     },
     "dependencies": {
-        "style-loader": "^0.23.0",
+        "style-loader": "^0.23.1",
         "tachyons": "^4.11.1",
         "three": "^0.96.0",
         "typed": "^0.3.3",
